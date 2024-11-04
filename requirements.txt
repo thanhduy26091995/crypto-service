@@ -5,3 +5,5 @@ requests
 pandas
 python-dotenv
 pydantic-settings
+sqlalchemy
+psycopg2-binary
