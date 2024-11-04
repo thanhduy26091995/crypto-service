@@ -1,13 +1,14 @@
 from fastapi import APIRouter
 
-from app.adapters.binance_api import fetch_ticker_data
+from app.service.data_service import DataService
 
 router = APIRouter()
+service = DataService()
 
 
 @router.get("/ticker/{symbol}")
 async def get_ticker(symbol: str):
-    return fetch_ticker_data(symbol)
+    return service.fetch_ticker_data(symbol)
 
 
 @router.get("/filtered_pairs")

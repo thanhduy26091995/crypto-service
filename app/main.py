@@ -1,18 +1,17 @@
 from fastapi import FastAPI
 from app.adapters.scheduler import scheduler, start_scheduler
 from app.api.routes import router
+from contextlib import asynccontextmanager
 
 app = FastAPI()
 
 
-@app.on_event("startup")
-def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     start_scheduler()
-
-
-@app.on_event("shutdown")
-def shutdown_event():
+    yield
     scheduler.shutdown()
 
 
 app.include_router(router)
+app.router.lifespan_context = lifespan

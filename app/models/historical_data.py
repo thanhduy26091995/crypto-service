@@ -1,5 +1,6 @@
+from sqlalchemy import Column, String, Float, BigInteger
+
 from app.models.database import Base
-from sqlalchemy import Column, String, Float, Integer, BigInteger
 
 
 class HistoricalData(Base):

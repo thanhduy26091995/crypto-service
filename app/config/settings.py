@@ -9,7 +9,7 @@ load_dotenv()
 class Settings(BaseSettings):
     binance_api_key: str = os.getenv('BINANCE_API_KEY', "")
     binance_secret_key: str = os.getenv('BINANCE_SECRET_KEY', "")
-    fetch_interval: int = 10  # In minutes
+    fetch_interval: int = 1  # In minutes
     database_url: str = os.getenv('DATABASE_URL', "")
 
     class Config:
@@ -18,9 +18,3 @@ class Settings(BaseSettings):
 
 # Instantiate the settings
 settings = Settings()
-
-# Accessing settings
-print(settings.binance_api_key)
-print(settings.binance_secret_key)
-print(settings.fetch_interval)
-print(settings.database_url)
