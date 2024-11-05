@@ -33,7 +33,7 @@ class BinanceAPI:
         return symbols
 
     @staticmethod
-    def fetch_historical_data(symbol, interval='1d', limit=100):
+    def fetch_historical_data(symbol, interval='1d', limit=200):
         """
         Fetch historical candlestick data for a given symbol from Binance API.
         """

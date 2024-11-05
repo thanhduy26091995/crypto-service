@@ -15,6 +15,7 @@ class DataService:
         return data
 
     def fetch_and_store_data(self, symbol):
+        print("FETCHING FOR: ", symbol)
         data = self.api.fetch_historical_data(symbol)
         transformed_data = self.transform_data(data)
         HistoricalDataRepository.save_data(symbol, transformed_data)
