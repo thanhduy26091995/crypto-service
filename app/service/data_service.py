@@ -10,6 +10,10 @@ class DataService:
         data = self.api.fetch_ticker_data(symbol)
         return data
 
+    def fetch_symbols(self):
+        data = self.api.fetch_symbols()
+        return data
+
     def fetch_and_store_data(self, symbol):
         data = self.api.fetch_historical_data(symbol)
         transformed_data = self.transform_data(data)
@@ -17,7 +21,6 @@ class DataService:
 
     @staticmethod
     def transform_data(data):
-        print(data)
         try:
             transformed_data = []
             for entry in data:

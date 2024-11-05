@@ -58,14 +58,14 @@ class BinanceAPI:
             ])
 
             # Convert timestamp to readable date format
-            df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+            # df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
 
             # Convert price and volume columns to float
             for col in ["open", "high", "low", "close", "volume"]:
                 df[col] = df[col].astype(float)
 
-            return df[['timestamp', 'open', 'high', 'low', 'close', 'volume']]
-
+            result = df[['timestamp', 'open', 'high', 'low', 'close', 'volume']].values.tolist()
+            return result
         except requests.exceptions.RequestException as e:
             print(f"Error fetching data: {e}")
             return None

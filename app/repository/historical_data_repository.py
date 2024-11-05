@@ -20,9 +20,7 @@ class HistoricalDataRepository:
                 )
                 session.add(historical_data)
             session.commit()
-
-        except Exception as e:
-            print(e)
+        except Exception:
             session.rollback()
         finally:
             session.close()
